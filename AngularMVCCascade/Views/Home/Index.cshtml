@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/cascade.js"></script>
+</head>
+<body style="text-align:center;padding:0 auto">
+
+     <h2>See <a href="http://techbrij.com/angularjs-cascade-dropdownlist-asp-net-mvc" style="font-style:italic;text-decoration:none">step by step tutorial</a></h2>
+      <div style="text-align:left;width:200px;margin:0 auto">
+
+
+    <div data-ng-app="myModule">
+
+        <form name="mainForm" data-ng-submit="sendForm()" data-ng-controller="myController" novalidate>
+            <div class="error">{{message}}</div>
+            <div>
+                <label>Ajax Oriented Approach: </label>
+                <select data-ng-model="country" data-ng-options="c.CountryId as c.CountryName for c in countries" data-ng-change="GetStates()">
+                    <option value="">-- Select Country --</option>
+                </select>
+
+                <select style="display:inline" data-ng-model="state" data-ng-disabled="!states" data-ng-options="s.StateId as s.StateName for s in states">
+                    <option value="">-- Select State --</option>
+                </select>
+            </div>
+            <div>
+                <label>Common Dataset Approach:</label>
+                <select data-ng-model="country2" data-ng-options="c as c.CountryName for c in allItems" data-ng-change="">
+                    <option value="">-- Select Country --</option>
+                </select>
+
+                <select data-ng-model="state2" data-ng-disabled="!country2" data-ng-options="s.StateId as s.StateName for s in country2.States">
+                    <option value="">-- Select State --</option>
+                </select>
+            </div>            
+        </form>
+    </div>
+          </div>
+</body>
+</html>
